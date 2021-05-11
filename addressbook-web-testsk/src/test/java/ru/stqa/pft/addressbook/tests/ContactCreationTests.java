@@ -9,7 +9,7 @@ public class ContactCreationTests extends TestBase {
   @Test
   public void testContactCreationTests() throws Exception {
     app.getContactHelper().initContactCreation();
-    app.getContactHelper().fillContactForm(new ContactData("Harry", "Potter", "+8944885995", "HarryPotter@wizard.com"));
+    app.getContactHelper().fillContactForm(new ContactData("Harry", "Potter", "+8944885995", "HarryPotter@wizard.com", "test1"), true);
     app.getContactHelper().submitContactCreation();
     app.getNavigationHelper().returnToHomePage();
     app.logout();

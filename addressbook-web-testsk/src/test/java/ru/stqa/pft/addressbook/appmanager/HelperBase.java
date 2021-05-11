@@ -16,6 +16,16 @@ public class HelperBase {
     wd.findElement(locator).click();
   }
 
+  protected boolean isElementPresent(By locator) {
+    try {
+      wd.findElement(locator);
+      return true;
+    } catch (NoSuchElementException ex) {
+      return false;
+
+    }
+  }
+
   protected void type(By locator, String text) {
     click(locator);
     if (text != null) {
@@ -27,14 +37,6 @@ public class HelperBase {
     }
   }
 
-  private boolean isElementPresent(By by) {
-    try {
-      wd.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
 
   private boolean isAlertPresent() {
     try {
