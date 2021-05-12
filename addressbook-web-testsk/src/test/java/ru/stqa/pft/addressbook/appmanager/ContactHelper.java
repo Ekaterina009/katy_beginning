@@ -20,17 +20,12 @@ public class ContactHelper extends HelperBase {
     wd.findElement(locator).click();
   }
 
-  public void fillContactForm(ContactData contactData, boolean creation) {
+  public void fillContactForm(ContactData contactData) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("home"), contactData.getHome());
     type(By.name("email"), contactData.getMail());
 
-    if (creation) {
-      new Select(wd.findElement(By.name("new_group"))). selectByVisibleText(contactData.getGroup());
-    } else {
-      Assert.assertFalse(isElementPresent(By.name("new_group")));
-    }
   }
 
   public void type(By locator, String text) {
@@ -53,5 +48,20 @@ public class ContactHelper extends HelperBase {
 
   public void submitContactModification() {
     click(By.xpath("(//input[@name='update'])[2]"));
+  }
+
+  public void returnToHomePage() {
+    click(By.linkText("home page"));
+  }
+
+  public void createContact(ContactData contact) {
+    initContactCreation();
+    fillContactForm(contact);
+    submitContactCreation();
+    returnToHomePage();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("//img[@alt='Edit']"));
   }
 }
