@@ -3,11 +3,11 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-  private int id;
-  private final String firstname;
-  private final String lastname;
-  private final String home;
-  private final String mail;
+  private int id = Integer.MAX_VALUE;;
+  private String firstname;
+  private String lastname;
+  private String home;
+  private String mail;
 
 
   @Override
@@ -23,30 +23,35 @@ public class ContactData {
     return Objects.hash(firstname, lastname);
   }
 
-  public ContactData(String firstname, String lastname, String home, String mail) {
-    this.id = Integer.MAX_VALUE;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.home = home;
-    this.mail = mail;
-  }
-
-
-  public ContactData(int id, String firstname, String lastname, String home, String mail) {
-    this.id = id;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.home = home;
-    this.mail = mail;
-  }
 
   public int getId() {
     return id;
   }
 
 
-  public void setId(int id) {
+  public ContactData withId(int id) {
     this.id = id;
+    return this;
+  }
+
+  public ContactData withFirstname(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+  public ContactData withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withHome(String home) {
+    this.home = home;
+    return this;
+  }
+
+  public ContactData withMail(String mail) {
+    this.mail = mail;
+    return this;
   }
 
   public String getFirstname() {
