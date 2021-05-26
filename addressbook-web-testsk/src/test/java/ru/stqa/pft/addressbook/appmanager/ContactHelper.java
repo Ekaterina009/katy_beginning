@@ -3,13 +3,13 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
+
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -47,8 +47,9 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("(//input[@name='update'])[3]"));
   }
 
-  public void editContact(int index) {
-    wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+
+  public void editContactById(int id) {
+    wd.findElement(By.cssSelector("#maintable a[href='edit.php?id=" + id + "']")).click();
     //click(By.xpath("//img[@alt='Edit']"));
   }
 
@@ -67,16 +68,18 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
-  public void modify(int index, ContactData contact) {
-    editContact(index);
+  public void modify(ContactData contact) {
+    editContactById(contact.getId());
     fillContactForm(contact);
     submitContactModification();
     returnToHomePage();
   }
 
-  public void delete(int index) {
-    editContact(index);
+
+  public void delete(ContactData contact) {
+    editContactById(contact.getId());
     deleteSelectedContact();
+
   }
 
   public boolean isThereAContact() {
@@ -87,8 +90,9 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
+
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
     List<WebElement> rows  = wd.findElements(By.name("entry"));
     for (WebElement row : rows) {
       List<WebElement> cells = row.findElements(By.tagName("td"));
@@ -99,4 +103,5 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
 }
