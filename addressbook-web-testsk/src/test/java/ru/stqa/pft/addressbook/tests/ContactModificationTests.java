@@ -24,8 +24,8 @@ public class ContactModificationTests extends TestBase {
     ContactData contact = new ContactData()
             .withId(modifiedContact.getId()).withFirstname("Harryup").withLastname("Potterup").withHome("+8944885991").withMail("HarryPotter@wizard.com");
     app.contact().modify(contact);
+    assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.contact().all();
-    assertEquals(after.size(), before.size());
     //app.logout();
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
 
