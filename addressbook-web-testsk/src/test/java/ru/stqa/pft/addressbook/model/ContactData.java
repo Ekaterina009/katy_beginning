@@ -8,7 +8,16 @@ public class ContactData {
   private String lastname;
   private String home;
   private String mail;
+  private String mobilePhone;
+  private String workPhone;
 
+  public String getMobilePhone() {
+    return mobilePhone;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -78,4 +87,13 @@ public class ContactData {
             '}';
   }
 
+  public ContactData withMobilePhone(String mobilePhone) {
+    this.mobilePhone = mobilePhone;
+    return this;
+  }
+
+  public ContactData withWorkPhone(String workPhone) {
+    this.workPhone = workPhone;
+    return this;
+  }
 }

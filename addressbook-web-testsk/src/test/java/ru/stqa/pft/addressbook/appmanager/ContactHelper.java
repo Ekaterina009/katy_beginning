@@ -46,7 +46,7 @@ public class ContactHelper extends HelperBase {
 
 
   public void editContactById(int id) {
-    wd.findElement(By.cssSelector("#maintable a[href='edit.php?id=" + id + "']")).click();
+    wd.findElement(By.cssSelector(String.format("#maintable a[href='edit.php?id=%s'", id))).click();
     //click(By.xpath("//img[@alt='Edit']"));
   }
 
@@ -109,4 +109,17 @@ public class ContactHelper extends HelperBase {
     return new Contacts(contactCache);
   }
 
+  public ContactData infoFromEditForm(ContactData contact) {
+    editContactById(contact.getId());
+    String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+    String work = wd.findElement(By.name("work")).getAttribute("value");
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId()).withFirstname(firstname)
+            .withLastname(lastname).withHome(home).withMobilePhone(mobile)
+            .withWorkPhone(work);
+
+  }
 }
