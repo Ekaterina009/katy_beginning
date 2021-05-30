@@ -6,13 +6,13 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.testng.Assert.assertEquals;
 
 public class ContactModificationTests extends TestBase {
 
   @BeforeMethod public void ensurePreconditions() {
     if (app.contact().all().size() == 0) {
-      app.contact().create(new ContactData().withFirstname("Harry").withLastname("Potter").withHome("+8944885995").withMail("HarryPotter@wizard.com"));
+      app.contact().create(new ContactData().withFirstname("Harry").withLastname("Potter").withHome("+8944885995")
+              .withMail("HarryPotter@wizard.com"));
     }
   }
 

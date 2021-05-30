@@ -19,10 +19,6 @@ public class ContactData {
     return allMails;
   }
 
-  public ContactData withAllMails(String allMails) {
-    this.allMails = allMails;
-    return this;
-  }
 
   public String getMail2() {
     return mail2;
@@ -38,18 +34,9 @@ public class ContactData {
     return address;
   }
 
-  public ContactData withAddress(String address) {
-    this.address = address;
-    return this;
-  }
 
   public String getAllPhones() {
     return allPhones;
-  }
-
-  public ContactData withAllPhones(String allPhones) {
-    this.allPhones = allPhones;
-    return this;
   }
 
   public String getMobilePhone() {
@@ -100,6 +87,21 @@ public class ContactData {
 
   public ContactData withMail(String mail) {
     this.mail = mail;
+    return this;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  public ContactData withAllMails(String allMails) {
+    this.allMails = allMails;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
     return this;
   }
 
