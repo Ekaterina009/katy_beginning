@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+
+import java.io.File;
 import java.util.List;
 
 
@@ -27,13 +29,9 @@ public class ContactHelper extends HelperBase {
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("home"), contactData.getHome());
     type(By.name("email"), contactData.getMail());
+    type(By.name("address"), contactData.getAddress());
+    attach(By.name("photo"), contactData.getPhoto());
 
-  }
-
-  public void type(By locator, String text) {
-    click(locator);
-    wd.findElement(locator).clear();
-    wd.findElement(locator).sendKeys(text);
   }
 
   public void initContactCreation() {
