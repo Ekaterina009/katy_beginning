@@ -1,0 +1,23 @@
+<list>
+  <contact>
+    <id>2147483647</id>
+    <firstname>Harry 0</firstname>
+    <lastname>Potter 0</lastname>
+    <home>8599488850</home>
+    <mail>HarryPotter0@wizard.com</mail>
+  </contact>
+  <contact>
+    <id>2147483647</id>
+    <firstname>Harry 1</firstname>
+    <lastname>Potter 1</lastname>
+    <home>8599488851</home>
+    <mail>HarryPotter1@wizard.com</mail>
+  </contact>
+  <contact>
+    <id>2147483647</id>
+    <firstname>Harry 2</firstname>
+    <lastname>Potter 2</lastname>
+    <home>8599488852</home>
+    <mail>HarryPotter2@wizard.com</mail>
+  </contact>
+</list>
