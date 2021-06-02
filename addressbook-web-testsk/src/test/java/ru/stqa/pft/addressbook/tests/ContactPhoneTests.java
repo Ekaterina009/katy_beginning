@@ -13,8 +13,9 @@ public class ContactPhoneTests extends TestBase {
 
   @BeforeMethod public void ensurePreconditions() {
     if (app.contact().all().size() == 0) {
-      app.contact().create(new ContactData().withFirstname("Bill").withLastname("Duff").withHome("+8944885995")
-              .withMail("BillDuff@plain.com").withAddress("Lenina 12"));
+      app.contact().create(new ContactData().withFirstname("Bill").withLastname("Duff")
+              .withHome("+8944885995").withMobilePhone("+8 4488 5991").withWorkPhone("+8-4188-5945")
+              .withMail("BillDuff@plain.com").withMail2("BillDuff@plain.ru").withMail3("BillDuff@plain.de").withAddress("Lenina 12"));
     }
   }
 
@@ -51,7 +52,7 @@ public class ContactPhoneTests extends TestBase {
   }
 
   private String  mergeMails(ContactData contact) {
-    return Arrays.asList(contact.getMail(),contact.getMail2())
+    return Arrays.asList(contact.getMail(),contact.getMail2(), contact.getMail3())
             .stream().filter((s) -> ! s.equals("")).collect(Collectors.joining("\n"));
   }
 

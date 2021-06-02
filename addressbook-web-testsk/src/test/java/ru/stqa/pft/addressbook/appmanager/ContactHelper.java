@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-
-import java.io.File;
 import java.util.List;
 
 
@@ -28,7 +26,11 @@ public class ContactHelper extends HelperBase {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("home"), contactData.getHome());
+    type(By.name("mobile"), contactData.getMobilePhone());
+    type(By.name("work"), contactData.getWorkPhone());
     type(By.name("email"), contactData.getMail());
+    type(By.name("email2"), contactData.getMail2());
+    type(By.name("email3"), contactData.getMail3());
     type(By.name("address"), contactData.getAddress());
     attach(By.name("photo"), contactData.getPhoto());
 
@@ -120,11 +122,12 @@ public class ContactHelper extends HelperBase {
     String work = wd.findElement(By.name("work")).getAttribute("value");
     String mail = wd.findElement(By.name("email")).getAttribute("value");
     String mail2 = wd.findElement(By.name("email2")).getAttribute("value");
+    String mail3 = wd.findElement(By.name("email3")).getAttribute("value");
     String address = wd.findElement(By.name("address")).getAttribute("value");
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname)
             .withLastname(lastname).withHome(home).withMobilePhone(mobile)
-            .withWorkPhone(work).withAddress(address).withMail(mail).withMail2(mail2);
+            .withWorkPhone(work).withAddress(address).withMail(mail).withMail2(mail2).withMail3(mail3);
 
   }
 }

@@ -16,12 +16,22 @@ public class ContactData {
   @Expose
   private String mail;
   private String mail2;
+  private String mail3;
   private String mobilePhone;
   private String workPhone;
   private String address;
   private String allPhones;
   private String allMails;
   private File photo;
+
+  public String getMail3() {
+    return mail3;
+  }
+
+  public ContactData withMail3(String mail3) {
+    this.mail3 = mail3;
+    return this;
+  }
 
   public File getPhoto() {
     return photo;
@@ -36,21 +46,13 @@ public class ContactData {
     return allMails;
   }
 
-
   public String getMail2() {
     return mail2;
   }
 
-  public ContactData withMail2(String mail2) {
-    this.mail2 = mail2;
-    return this;
-  }
-
-
   public String getAddress() {
     return address;
   }
-
 
   public String getAllPhones() {
     return allPhones;
@@ -62,6 +64,26 @@ public class ContactData {
 
   public String getWorkPhone() {
     return workPhone;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public String getFirstname() {
+    return firstname;
+  }
+
+  public String getLastname() {
+    return lastname;
+  }
+
+  public String getHome() {
+    return home;
+  }
+
+  public String getMail() {
+    return mail;
   }
 
   @Override
@@ -77,9 +99,6 @@ public class ContactData {
     return Objects.hash(id, firstname, lastname);
   }
 
-  public int getId() {
-    return id;
-  }
 
 
   public ContactData withId(int id) {
@@ -122,21 +141,21 @@ public class ContactData {
     return this;
   }
 
-  public String getFirstname() {
-    return firstname;
+  public ContactData withMobilePhone(String mobilePhone) {
+    this.mobilePhone = mobilePhone;
+    return this;
   }
 
-  public String getLastname() {
-    return lastname;
+  public ContactData withWorkPhone(String workPhone) {
+    this.workPhone = workPhone;
+    return this;
   }
 
-  public String getHome() {
-    return home;
+  public ContactData withMail2(String mail2) {
+    this.mail2 = mail2;
+    return this;
   }
 
-  public String getMail() {
-    return mail;
-  }
 
   @Override
   public String toString() {
@@ -147,13 +166,4 @@ public class ContactData {
             '}';
   }
 
-  public ContactData withMobilePhone(String mobilePhone) {
-    this.mobilePhone = mobilePhone;
-    return this;
-  }
-
-  public ContactData withWorkPhone(String workPhone) {
-    this.workPhone = workPhone;
-    return this;
-  }
 }
