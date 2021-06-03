@@ -16,5 +16,29 @@
     "lastname": "Potter2",
     "home": "8599488852",
     "mail": "HarryPotter2@wizard.com"
+  },
+  {
+    "firstname": "Harry3",
+    "lastname": "Potter3",
+    "home": "8599488853",
+    "mail": "HarryPotter3@wizard.com"
+  },
+  {
+    "firstname": "Harry4",
+    "lastname": "Potter4",
+    "home": "8599488854",
+    "mail": "HarryPotter4@wizard.com"
+  },
+  {
+    "firstname": "Harry5",
+    "lastname": "Potter5",
+    "home": "8599488855",
+    "mail": "HarryPotter5@wizard.com"
+  },
+  {
+    "firstname": "Harry6",
+    "lastname": "Potter6",
+    "home": "8599488856",
+    "mail": "HarryPotter6@wizard.com"
   }
 ]
