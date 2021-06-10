@@ -10,6 +10,7 @@ dependencies {
     implementation 'de.weltraumschaf.commons:jcommander:2.2.0'
     implementation 'xstream:xstream:1.2.2'
     implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'mysql:mysql-connector-java:8.0.25'
 
 
 }
